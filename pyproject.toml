@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "timebot"
+version = "0.1.0"
+description = "A fun Discord bot to view each other's time"
+authors = ["MannuVilasara <mannuvilasara@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+discord = "^2.3.2"
+python-dotenv = "^1.0.0"
+pymongo = "^4.5.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
