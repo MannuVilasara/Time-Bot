@@ -1,8 +1,8 @@
-## Time Bot
+# Time Bot
 
 A Discord bot to check each other's time
 
-## How to setup
+# How to setup
 
 rename the `.env.example` file to `.env` and enter your `Bot token`, `prefix` (default=!) And `Mongodb uri`.
 
