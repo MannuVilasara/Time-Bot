@@ -4,7 +4,7 @@ import discord
 from bot.utils.utils import mongo
 
 
-class Static(commands.Cog):
+class Timezones(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -87,7 +87,19 @@ class Static(commands.Cog):
                 db.insert_one(user)
                 await ctx.send(f"`Updated your timezone to {timezone}`")
 
+    @commands.hybrid_command(name="remove-timezone", description="remove user timezone")
+    async def remove(self, ctx: commands.Context):
+        db = mongo()
+        user = db.find_one({"_id": int(ctx.author.id)})
+        if "timezone" in user:
+            db.delete_one(user)
+            del user["timezone"]
+            db.insert_one(user)
+            await ctx.send("Removed your timezone")
+        else:
+            await ctx.send("You don't have timezone set")
+
 
 async def setup(bot):
-    await bot.add_cog(Static(bot))
+    await bot.add_cog(Timezones(bot))
     print("Timezone is loaded")
