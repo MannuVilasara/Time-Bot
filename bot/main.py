@@ -1,4 +1,3 @@
-from pickle import NONE
 import discord
 from discord.ext import commands
 from bot.utils.constants import TOKEN, PREFIX
@@ -7,16 +6,16 @@ from bot.utils.utils import mongo
 import dns.resolver
 
 
-class timeBot(commands.Bot):
+class TimeBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix=PREFIX, intents=discord.Intents.all())
 
     async def on_ready(self):
         await load()
-        print(f"Logged in as {self.user}")
+        print(f"Logged in as {self.user} | servers: {len(self.guilds)}")
 
 
-bot = timeBot()
+bot = TimeBot()
 
 bot.remove_command("help")
 
